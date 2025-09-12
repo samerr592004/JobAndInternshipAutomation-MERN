@@ -1,7 +1,11 @@
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"; // if you're using ES modules
+import nodemailer from "nodemailer";
 import { sendEmail } from "../utils/sendEmail.js";
+import OpenAI from "openai";
+import fs from "fs";
+import { parseResumeWithGemini } from "../services/gemini.service.js";
 
 // Generate Random OTP
 const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
@@ -15,6 +19,15 @@ export const signup = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
         }
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+        return res.status(400).json({
+          success: false,
+          message:
+            "Password must be at least 8 characters long, include uppercase, lowercase, number, and special character",
+        });
+      }
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const otp = generateOTP();
@@ -95,29 +108,5 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
-  }
-};
-
-// Get user profile
-export const getUserProfile = async (req, res) => {
-  try {
-    // User is already attached to req by middleware
-    const user = req.user;
-    console.log("Fetched user profile:", user);
-    res.status(200).json({
-      success: true,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        isVerified: user.isVerified,
-        createdAt: user.createdAt
-      }
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: error.message 
-    });
   }
 };
