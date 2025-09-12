@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Beautiful Purple-Teal Gradient Design System */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    /* Purple-Teal Gradient Primary */
+    --primary: 260 80% 55%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 280 75% 65%;
+    
+    /* Teal Accent */
+    --secondary: 180 65% 60%;
+    --secondary-foreground: 240 10% 3.9%;
+    --secondary-glow: 170 75% 55%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 280 65% 90%;
+    --accent-foreground: 240 10% 3.9%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 260 80% 55%;
+    
+    --radius: 0.75rem;
+    
+    /* Beautiful Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(260 80% 55%), hsl(280 75% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(180 65% 60%), hsl(170 75% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(260 80% 55%) 0%, hsl(280 75% 65%) 35%, hsl(180 65% 60%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(240 4.8% 95.9%) 100%);
+    
+    /* Elegant Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(260 80% 55% / 0.3);
+    --shadow-glow: 0 0 40px hsl(280 75% 65% / 0.4);
+    --shadow-card: 0 4px 20px hsl(240 10% 3.9% / 0.1);
+    
+    /* Smooth Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 260 80% 55%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 240 5.9% 90%;
+    --sidebar-ring: 260 80% 55%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 280 75% 65%;
+    --primary-foreground: 240 10% 3.9%;
+    --primary-glow: 260 80% 55%;
+    
+    --secondary: 170 75% 55%;
+    --secondary-foreground: 240 10% 3.9%;
+    --secondary-glow: 180 65% 60%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 280 75% 65%;
+    
+    /* Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(280 75% 65%), hsl(260 80% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(170 75% 55%), hsl(180 65% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(280 75% 65%) 0%, hsl(260 80% 55%) 35%, hsl(170 75% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(240 10% 3.9%) 0%, hsl(240 3.7% 15.9%) 100%);
+    
+    /* Dark Mode Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(280 75% 65% / 0.5);
+    --shadow-glow: 0 0 40px hsl(260 80% 55% / 0.6);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    
+    /* Dark Sidebar */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 280 75% 65%;
+    --sidebar-primary-foreground: 240 10% 3.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 280 75% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
