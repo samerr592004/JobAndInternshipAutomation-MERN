@@ -1,7 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import testRoutes from "./routes/test.route.js";
-import connectDB from './config/db.js';
+import connectDB from './config/DBConnection.js';
 import authRoutes from "./routes/auth.route.js";
 
 
@@ -12,7 +13,22 @@ dotenv.config();
 // Create app
 const app = express();
 
-// Middleware to parse JSON
+// CORS configuration
+const corsOptions = {
+  origin: [
+    'http://localhost:8083',
+    'http://localhost:8080',
+    'http://localhost:8081',
+    'http://localhost:8082',
+    'http://localhost:5173',
+    'http://localhost:3000'
+  ],
+  credentials: true,
+  optionsSuccessStatus: 200
+};
+
+// Middleware
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
