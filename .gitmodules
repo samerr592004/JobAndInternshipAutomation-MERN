@@ -1,6 +1,0 @@
-[submodule "Frontend"]
-    path = Frontend
-    url = https://github.com/yourusername/Frontend.git
-[submodule "loop-hub-dashboard"]
-    path = loop-hub-dashboard
-    url = https://github.com/yourusername/loop-hub-dashboard.git
