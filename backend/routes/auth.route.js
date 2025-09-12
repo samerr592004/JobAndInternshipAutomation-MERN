@@ -1,11 +1,13 @@
 import express from "express";
-import { signup, verifyOTP, login } from "../controllers/auth.controller.js";
+import { signup, verifyOTP, login,forgetPassword,resetPassword,parseResume } from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
 router.post("/signup", signup);
 router.post("/verify-otp", verifyOTP);
 router.post("/login", login);
-
+router.post("/forget-password", forgetPassword);
+router.post("/reset-password/:token", resetPassword);
+router.post("/parse", parseResume);
 
 export default router;
