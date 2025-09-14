@@ -2,7 +2,13 @@ import express from "express";
 <<<<<<< HEAD
 import { signup, verifyOTP, login,forgetPassword,resetPassword,parseResume } from "../controllers/auth.controller.js";
 =======
-import { signup, verifyOTP, login, getUserProfile } from "../controllers/auth.controller.js";
+import { signup,
+  verifyOTP,
+  login,
+  forgetPassword,
+  resetPassword,
+  parseResume,
+  getUserProfile } from "../controllers/auth.controller.js";
 import { authenticateToken } from "../middleware/auth.middleware.js";
 >>>>>>> 62e49ddcdbd31b0aba52bf441c032f7058273fa6
 

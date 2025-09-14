@@ -110,3 +110,20 @@ export const login = async (req, res) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+// Gemini integration for resume parsing
+
+
+export const parseResume = async (req, res) => {
+  try {
+    const { text } = req.body;
+    if (!text) {
+      return res.status(400).json({ error: "Resume text is required" });
+    }
+
+    const parsedData = await parseResumeWithGemini(text);
+    res.json({ parsedResume: parsedData });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
