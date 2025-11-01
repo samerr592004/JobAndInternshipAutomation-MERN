@@ -1,4 +1,3 @@
-import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -18,6 +17,10 @@ import NotFound from "./pages/NotFound";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import toast, { Toaster } from 'react-hot-toast';
+import '@mantine/core/styles.css';
+
+import { MantineProvider } from '@mantine/core';
 
 const queryClient = new QueryClient();
 
@@ -35,6 +38,7 @@ const AuthRoutes = () => (
 );
 
 const App = () => (
+  <MantineProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -45,7 +49,7 @@ const App = () => (
           <Route element={<PublicRoutes />}>
             <Route path="/" element={<Landing />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route path="/signup" element={<Login />} />
             {/* Add more public routes here if needed */}
           </Route>
           
@@ -75,6 +79,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </MantineProvider>
 );
 
 export default App;
